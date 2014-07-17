@@ -7,12 +7,6 @@ var FilmView = Backbone.Marionette.ItemView.extend({
 		text : ".edit" 
 	},
 
-
-	initialize: function(){
-		this.listenTo(this.model, 'destroy', this.remove);
-		this.listenTo(this.model, 'change', this.render);
-	},
-
 	events : {
 		"click .remove-button"  : "deleteFilm",
 		"click .film-name" 		: "details",
@@ -43,6 +37,5 @@ var FilmView = Backbone.Marionette.ItemView.extend({
 
 	details : function(){
 		layoutView.content.show(new DetailsView({model:this.model}));
-		//Backbone.trigger("detailsEvent", this.model);
 	}
 });
