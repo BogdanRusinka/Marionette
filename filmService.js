@@ -12,11 +12,11 @@ var FilmService = function(){
 		if (id){
 			var item = _.findWhere(this.FilmList, {id: Number(id)});
 			if (item) {
-				return {name:item.name, year: item.year, id: item.id};
+				return {name:item.name, year: item.year, id: item.id, details0 : item.details0, details1 : item.details2};
 			}
 		} else {
 			return _.map(this.FilmList, function(item){
-				return {name:item.name, year: item.year, id: item.id}
+				return {name:item.name, year: item.year, id: item.id, details0 : item.details0, details1 : item.details2}
 			});
 		}
 	};

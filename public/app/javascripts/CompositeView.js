@@ -1,11 +1,11 @@
 var CompositeView = Backbone.Marionette.CompositeView.extend({
-	el : "#app",
-	template: '#new-film-template',
+	className: "layout",
+	template: '#app-template',
 
 	childView: FilmView,
 
 	childViewContainer: ".films",
-
+	
 	events : {
 		"click .add-button" : "addFilm"
 	},
@@ -17,13 +17,13 @@ var CompositeView = Backbone.Marionette.CompositeView.extend({
 
 	addFilm : function(){
 		var data = {
-			name : ui.name.val(),			
-			year : ui.year.val()
+			name : this.ui.name.val(),			
+			year : this.ui.year.val()
 		}
 		var id = films.last().id+1;
 		films.add({id : id, name : data.name, year : "("+data.year+")"});
-		ui.name.val("");
-		ui.year.val("");
+		this.ui.name.val("");
+		this.ui.year.val("");
 	}
 });
 
